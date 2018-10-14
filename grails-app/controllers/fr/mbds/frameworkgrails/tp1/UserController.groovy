@@ -96,4 +96,54 @@ class UserController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+
+    def editFeaturedImage(Long id) {
+        User restaurant = userDataService.get(id)
+        if (!user) {
+            notFound()
+        }
+        [user: user]
+    }
+
+    def uploadFeaturedImage(FeaturedImageUser cmd) {
+        if (cmd == null) {
+            notFound()
+            return
+        }
+
+        if (cmd.hasErrors()) {
+            respond(cmd.errors, model: [user: cmd], view: 'editFeaturedImage')
+            return
+        }
+
+        User user = userDataService.update(cmd.id,
+                cmd.version,
+                cmd.featuredImageFile.bytes,
+                cmd.featuredImageFile.contentType)
+
+        if (user == null) {
+            notFound()
+            return
+        }
+
+        if (user.hasErrors()) {
+            respond(user.errors, model: [user: user], view: 'editFeaturedImage')
+            return
+        }
+
+        Locale locale = request.locale
+        flash.message = crudMessageService.message(CRUD.UPDATE, domainName(locale), cmd.id, locale)
+        redirect user
+    }
+
+    def featuredImage(Long id) {
+        User user = userDataService.get(id)
+        if (!user || user.featuredImageBytes == null) {
+            notFound()
+            return
+        }
+        render file: restaurant.featuredImageBytes,
+                contentType: restaurant.featuredImageContentType
+    }
 }
