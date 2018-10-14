@@ -6,24 +6,36 @@
 </head>
 <body>
     <content tag="nav">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
-                <li><a href="#">App profile: ${grailsApplication.config.grails?.profile}</a></li>
-                <li><a href="#">App version:
-                    <g:meta name="info.app.version"/></a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Grails version:
-                    <g:meta name="info.app.grailsVersion"/></a>
-                </li>
-                <li><a href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
-                <li><a href="#">JVM version: ${System.getProperty('java.version')}</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
-            </ul>
+
+
+        <li class="controller">
+            <a href="${createLink(action: 'index') }" role="button"> Accueil </a>
         </li>
+
+        <li class="controller">
+            <a href="${createLink(action: 'index', controller:'user') }" role="button"> Users </a>
+        </li>
+
+
+        <li class="controller">
+            <a href="${createLink(action: 'index', controller:'match') }" role="button"> Match </a>
+        </li>
+
+
+        <li class="controller">
+            <a href="${createLink(action: 'index', controller:'message') }" role="button"> Message </a>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+
+                <li><a href="$"</li>
+                <li><a href="#">Controllers: ${grailsApplication.controllerClasses.size()}</a></li>                                                                                                       <li>
+                <li><a href="#">Domains: ${grailsApplication.domainClasses.size()}</a></li>                                                                                                                   <button class="controller"> action="users" Users/>
+                <li><a href="#">Services: ${grailsApplication.serviceClasses.size()}</a></li>                                                                                                             </li>
+                <li><a href="#">Tag Libraries: ${grailsApplication.tagLibClasses.size()}</a></li>
+            </ul>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -45,7 +57,7 @@
 
     <div class="svg" role="presentation">
         <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
+            <asset:image src="logo_mbds.png"  class="grails-logo"/>
         </div>
     </div>
 
