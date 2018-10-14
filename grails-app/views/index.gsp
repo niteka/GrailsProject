@@ -8,25 +8,6 @@
 <body>
 <content tag="nav">
 
-    <li class="controller">
-        <a href="${createLink(action: 'index')}" role="button">Accueil</a>
-    </li>
-
-    <li class="controller">
-        <a href="${createLink(action: 'index', controller: 'user')}" role="button">Users</a>
-    </li>
-
-
-    <li class="controller">
-        <a href="${createLink(action: 'index', controller: 'match')}" role="button">Match</a>
-    </li>
-
-
-    <li class="controller">
-        <a href="${createLink(action: 'index', controller: 'message')}" role="button">Message</a>
-    </li>
-
-
 </content>
 
 <div class="svg" role="presentation">

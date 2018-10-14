@@ -32,6 +32,23 @@
                 <ul class="nav navbar-nav navbar-right">
                     <g:pageProperty name="page.nav" />
                 </ul>
+                <li class="controller">
+                    <a href="${createLink(uri: '/')}" role="button">Accueil</a>
+                </li>
+
+                <li class="controller">
+                    <a href="${createLink(action: 'index', controller: 'user')}" role="button">Users</a>
+                </li>
+
+
+                <li class="controller">
+                    <a href="${createLink(action: 'index', controller: 'match')}" role="button">Match</a>
+                </li>
+
+
+                <li class="controller">
+                    <a href="${createLink(action: 'index', controller: 'message')}" role="button">Message</a>
+                </li>
             </div>
         </div>
     </div>
