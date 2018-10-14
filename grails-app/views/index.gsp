@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
+    <title>MBDS Grails Project 2018</title>
 </head>
 
 <body>
