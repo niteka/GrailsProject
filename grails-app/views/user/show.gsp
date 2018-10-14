@@ -20,8 +20,14 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:display bean="user" />
+
+            <g:if test="${this.user.featuredImageBytes}">
+                <img src="<g:createLink controller="user" action="featuredImage" id="${this.user.id}"/>" width="400"/>
+            </g:if>
+
             <g:form resource="${this.user}" method="DELETE">
                 <fieldset class="buttons">
+                    <g:link class="edit" action="editFeaturedImage" resource="${this.user}"><g:message code="user.featuredImageUrl.edit.label" default="Edit Featured Image" /></g:link>
                     <g:link class="edit" action="edit" resource="${this.user}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
                     <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
                 </fieldset>

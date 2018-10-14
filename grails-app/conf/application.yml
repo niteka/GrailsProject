@@ -8,6 +8,14 @@ grails:
             # Whether to translate GORM events into Reactor events
             # Disabled by default for performance reasons
             events: false
+---
+grails:
+    controllers:
+        upload:
+            maxFileSize: 26214400
+            maxRequestSize: 26214400
+
+
 info:
     app:
         name: '@info.app.name@'
