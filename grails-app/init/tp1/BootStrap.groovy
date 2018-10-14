@@ -1,10 +1,5 @@
 package fr.mbds.frameworkgrails.tp1
 
-import fr.mbds.frameworkgrails.tp1.Match
-import fr.mbds.frameworkgrails.tp1.Message
-import fr.mbds.frameworkgrails.tp1.Role
-import fr.mbds.frameworkgrails.tp1.User
-import fr.mbds.frameworkgrails.tp1.UserRole
 
 class BootStrap {
 

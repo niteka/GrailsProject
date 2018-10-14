@@ -1,7 +1,7 @@
 package fr.mbds.frameworkgrails.tp1
 
 
-import groovy.transform.EqualsAndHashCode
+    import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
 

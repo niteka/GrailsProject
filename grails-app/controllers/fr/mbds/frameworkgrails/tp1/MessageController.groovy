@@ -12,11 +12,12 @@ class MessageController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond messageService.list(params), model:[messageCount: messageService.count()]
+        respond messageService.list(params), model: [messageCount: messageService.count()]
     }
 
     def show(Long id) {
         def messageInstance = Message.get(id)
+
         if (messageInstance)
         {
             messageInstance.status = true
@@ -25,6 +26,7 @@ class MessageController {
         }
         else
             redirect action: 'list'
+
     }
 
     def create() {
@@ -40,7 +42,7 @@ class MessageController {
         try {
             messageService.save(message)
         } catch (ValidationException e) {
-            respond message.errors, view:'create'
+            respond message.errors, view: 'create'
             return
         }
 
@@ -66,7 +68,7 @@ class MessageController {
         try {
             messageService.save(message)
         } catch (ValidationException e) {
-            respond message.errors, view:'edit'
+            respond message.errors, view: 'edit'
             return
         }
 
@@ -75,7 +77,7 @@ class MessageController {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'message.label', default: 'Message'), message.id])
                 redirect message
             }
-            '*'{ respond message, [status: OK] }
+            '*' { respond message, [status: OK] }
         }
     }
 
@@ -90,9 +92,9 @@ class MessageController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'message.label', default: 'Message'), id])
-                redirect action:"index", method:"GET"
+                redirect action: "index", method: "GET"
             }
-            '*'{ render status: NO_CONTENT }
+            '*' { render status: NO_CONTENT }
         }
     }
 
@@ -102,7 +104,7 @@ class MessageController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'message.label', default: 'Message'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*'{ render status: NOT_FOUND }
+            '*' { render status: NOT_FOUND }
         }
     }
 }
